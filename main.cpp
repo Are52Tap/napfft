@@ -2,7 +2,7 @@
 #include "streamformat.h"
 #include "audioplayer.h"
 #include "playbackdevice.h"
-//#include "fft.h"
+#include "fft.h"
 
 #include <iostream>
 #include <string>

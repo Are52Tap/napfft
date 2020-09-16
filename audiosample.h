@@ -1,7 +1,7 @@
 #pragma once
 #include "streamformat.h"
 
-//#include "drealfunction.h"
+#include "drealfunction.h"
 
 /*extern "C" {
 	#include <libswresample/swresample.h>
