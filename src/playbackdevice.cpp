@@ -58,7 +58,7 @@ int PlaybackDevice::preparePlayback(StreamFormat& pf){
 	 * is original enough to be distinct, because there is only a few ways to do this type 
 	 * of code and much are very similar to Alsa-Project's example test/pmc.c code
 	 * 
-	 * /
+	 **/
 
 
 
