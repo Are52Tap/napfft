@@ -17,18 +17,25 @@ INCLUDES := $(addprefix -I,$(SRC_DIR))
 #SRC := $(addsuffix *.cpp,$(SRC_DIR))
 #HEADERS := $(addsuffix *.h,$(SRC_DIR))
 
-
-all: build clean
+## | doesn't specify strict ordering
+all: build
+	$(MAKE) clean
 
 createdirs:
 	mkdir -p $(OBJ_DIR)
 	mkdir -p $(OUT_DIR)
 
-build: createdirs $(OBJ)
+build: createdirs $(HEADERS)
+	$(MAKE) compile
+
+compile: $(OBJ)
 	$(CC) $(CFLAGS) $(INCLUDES) -o $(OUT_DIR)/napfft $(OBJ) $(LDFLAGS)
 
+compile: $(HEADERS) $(OBJ)
+
+
 #cppfiles: $(HEADERS)
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp $(HEADERS)
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
 #	$(info $@)
 #	$(info $<)
 	$(CC) $(CFLAGS) $(INCLUDES) $(LDFLAGS) -o $@ -c $<

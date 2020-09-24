@@ -10,10 +10,10 @@
 #define PCM_FORMAT PCM_FORMAT_S32
 #define PCM_ACCESS PCM_ACCESS_INTERLEAVED
 
-int main(){
+int main(int argc, char const *argv[]){
 	StreamFormat sf(PCM_FORMAT, PCM_ACCESS);
 	AudioStream& as = *(new AudioStream(sf));
-	if(as.load("../audio/ad.m4a") < 0) return -1;
+	if(as.load(argv[1]) < 0) return -1;
 	std::cout << "Song duration: " << as.getDuration() << std::endl;
 	//StreamFormat pf(PCM_FORMAT, PCM_ACCESS, 144000);
 	PlaybackDevice pd("default");
