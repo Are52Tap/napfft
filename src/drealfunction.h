@@ -12,4 +12,6 @@ class DRealFunction{
 		~DRealFunction(){
 			free(array);
 		}
+		double* getArray(){return array;}
+		uint64_t getSize(){return size;}
 };

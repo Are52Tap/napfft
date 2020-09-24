@@ -1,12 +1,15 @@
 #include "fft_ct.h"
+#include "functions.h"
 
 #include <iostream>
 #include <math.h>
 
 
 DComplexFunction CooleyTukeyFFT::fft(DRealFunction dts){
-	//CArray& x = dts.getArray();
-
+	//double* d = dts.getArray()
+	DComplexFunction dc = getComplexFromReal(dts);
+	fft_ct(dc.getArray());
+	return dc;
 }
 
 void CooleyTukeyFFT::fft_ct(CArray& x){
@@ -21,7 +24,7 @@ void CooleyTukeyFFT::fft_ct(CArray& x){
 
 	for(int k = 0 ; k < half ; k++)
 	{
-		Complex t = polar(1.0,-1.0 * M_PI * k / half) * odd[k];
+		Complex t = std::polar(1.0,-1.0 * M_PI * k / half) * odd[k];
 		x[k] = even[k] + t;
 		x[k+half] = even[k] - t;
 	}

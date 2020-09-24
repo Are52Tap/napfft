@@ -3,11 +3,11 @@
 
 class DComplexFunction{
 	protected:
-		CArray* array;
-		uint64_t size;
+		CArray* array; 
 	public:
 		inline CArray& getArray(){return *array;}
-		DComplexFunction(CArray* array, uint64_t size) : array(array), size(size){}
+		uint64_t getSize(){return array->size();}
+		DComplexFunction(CArray* array) : array(array){}
 		~DComplexFunction(){
 			free(array);
 		}
