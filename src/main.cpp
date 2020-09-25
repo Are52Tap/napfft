@@ -2,7 +2,10 @@
 #include "streamformat.h"
 #include "audioplayer.h"
 #include "playbackdevice.h"
+
 #include "fft.h"
+#include "fft_ct.h"
+#include "fourieranalyser.h"
 
 #include <iostream>
 #include <string>
@@ -17,6 +20,7 @@ int main(int argc, char const *argv[]){
 	std::cout << "Song duration: " << as.getDuration() << std::endl;
 	//StreamFormat pf(PCM_FORMAT, PCM_ACCESS, 144000);
 	PlaybackDevice pd("default");
+	FourierAnalyser fa(CooleyTukeyFFT());
 	AudioPlayer ap(pd);
 		//ap.pause();
 		ap.addToQueue(&as);

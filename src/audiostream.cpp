@@ -10,7 +10,7 @@ extern "C" {
 
 #include <cassert>
 
-AudioStream::AudioStream(StreamFormat& format) : sf(&format){
+AudioStream::AudioStream(StreamFormat format) : sf(format){
 }
 
 int AudioStream::load(const std::string& path){
@@ -39,7 +39,7 @@ int AudioStream::load(const std::string& path){
 
 
 
-	StreamFormat& tSF = *sf;
+	StreamFormat& tSF = sf;
 
 	int streamIndex = -1;
 	AVFrame* frame;

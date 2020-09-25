@@ -118,6 +118,12 @@ class StreamFormat{
 
 		// CONSTRUCTORS
 
+
+		// Use default values
+		StreamFormat(){
+
+		}
+
 		StreamFormat(const enum pcm_format format, const enum pcm_access access, const uint32_t rate) : 
 			pcmFormat(format), pcmAccess(access), frameRate(rate){}
 
